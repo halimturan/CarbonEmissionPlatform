@@ -55,8 +55,8 @@
                                     {% trans 'Firma' %}:
                                 </div>
                                 <div class="col-8">
-                                    <input type="hidden" id="company_id" value="{% if company %}{{ company.id }}{% endif %}">
-                                    {% if company %}{{ company }}{% else %}<a class="btn btn-light-primary btn-sm">{% trans 'Ekle' %}</a>{% endif %}
+                                    <input type="hidden" id="company_id" value="{% if company %}{{ company.company.id }}{% endif %}">
+                                    {% if company %}{{ company.company.name }}{% else %}<a class="btn btn-light-primary btn-sm">{% trans 'Ekle' %}</a>{% endif %}
                                 </div>
                             </div>
                             <!--end::row-->

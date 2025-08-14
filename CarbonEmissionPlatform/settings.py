@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'django.contrib.gis',
     'apps.web.apps.WebConfig',
     'apps.portal.apps.PortalConfig',
     'apps.site_settings.apps.SiteSettingsConfig',
@@ -51,6 +52,7 @@ INSTALLED_APPS = [
     "django.contrib.sites",
     'allauth',
     'allauth.account',
+    'leaflet',
 ]
 
 MIDDLEWARE = [

@@ -1,6 +1,7 @@
 from django.contrib.gis.db import models
 from apps.common.mixins.audit import AuditMixin
 from parler.models import TranslatableModel, TranslatedFields
+from apps.web.models import Country, City
 import uuid
 
 
@@ -39,12 +40,35 @@ class Company(AuditMixin, TranslatableModel):
         name=models.CharField(max_length=100, verbose_name="İsim"),
         description=models.CharField(max_length=500, verbose_name="Açıklama", null=True, blank=True)
     )
+    country = models.ForeignKey(Country, verbose_name="Ülke", on_delete=models.CASCADE, related_name="company_country", blank=True, null=True)
+    city = models.ForeignKey(City, verbose_name="Şehir", on_delete=models.CASCADE, related_name="city_country", blank=True, null=True)
+    tax_no = models.BigIntegerField(verbose_name="Vergi Numarası", null=True, blank=True)
+    phone = models.BigIntegerField(verbose_name="Telefon", null=True, blank=True)
+    website = models.URLField(verbose_name="Website", null=True, blank=True)
+    mail = models.EmailField(verbose_name="Email", null=True, blank=True)
+    personnel_count = models.SmallIntegerField(verbose_name="Personel Sayısı", default=0)
+    building_count = models.SmallIntegerField(verbose_name="Bina Sayısı", default=0)
     logo = models.ImageField(upload_to='portal/company/logo', null=True, blank=True, verbose_name="Logo")
     address = models.CharField(verbose_name="Adres", max_length=1000, null=True, blank=True)
     geo = models.GeometryField(null=True, blank=True, verbose_name="Geometri", srid=4326)
 
     def __str__(self):
         return self.name
+
+    def profile_completion(self):
+        rate = 0
+        company = Company.objects.get(pk=self.pk)
+        rate += 5  if company.name else 0
+        rate += 5 if company.country else 0
+        rate += 5 if company.city else 0
+        rate += 5 if company.tax_no else 0
+        rate += 5 if company.personnel_count else 0
+        rate += 5 if company.building_count else 0
+        rate += 5 if company.logo else 0
+        rate += 5 if company.address else 0
+        rate += 5 if company.geo else 0
+        rate += 20 if company.facilities_company else 0
+        return rate
 
     class Meta:
         verbose_name_plural = "ŞirketLer"

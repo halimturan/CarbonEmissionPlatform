@@ -1,6 +1,7 @@
 from django.contrib import admin
 from parler.admin import TranslatableAdmin
-from .models import Sector, ActivityArea, Company, Facilities
+from .models import Sector, ActivityArea, Company, Facilities, CompanyUser
+from leaflet.admin import LeafletGeoAdmin
 
 
 @admin.register(Sector)
@@ -14,10 +15,15 @@ class ActivityAreaAdmin(TranslatableAdmin):
 
 
 @admin.register(Company)
-class CompanyAdmin(TranslatableAdmin):
-    list_display = ('name', 'description', 'address')
+class CompanyAdmin(TranslatableAdmin, LeafletGeoAdmin):
+    list_display = ('name', 'description', 'address', 'phone', 'website', 'mail', 'tax_no')
 
 
 @admin.register(Facilities)
 class CompanyAdmin(TranslatableAdmin):
     list_display = ('company', 'name', 'description', 'address')
+
+
+@admin.register(CompanyUser)
+class CompanyUserAdmin(admin.ModelAdmin):
+    list_display = ('user', 'company')
