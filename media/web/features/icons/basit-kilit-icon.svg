@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 128 128" role="img" aria-label="Basit kilit ikonu">
+  <style>
+    .stroke{stroke:#1f7a4c;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;fill:none;}
+  </style>
+
+  <!-- Shackle -->
+  <path d="M40 50v-8a24 24 0 1 1 48 0v8" class="stroke"/>
+
+  <!-- Body -->
+  <rect x="32" y="50" width="64" height="50" rx="8" fill="none" stroke="#1f7a4c" stroke-width="4"/>
+
+  <!-- Keyhole -->
+  <circle cx="64" cy="75" r="4" fill="#1f7a4c"/>
+  <path d="M64 79v10" stroke="#1f7a4c" stroke-width="3" stroke-linecap="round"/>
+</svg>

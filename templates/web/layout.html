@@ -1,0 +1,113 @@
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="tr">
+    <head>
+        <title>{% block title %}{% endblock %} | Karbon Platform</title>
+        <meta charset="utf-8" />
+        <meta name="description" content="{% block description %}{% endblock %}" />
+        <meta name="keywords" content="{% block keywords %}{% endblock %}" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:title" content="Online Karbon Emisyon, Hesaplama, Raporlama, Yönetme Platformu" />
+        <meta property="og:url" content="https://portalkarbon.com" />
+        <meta property="og:site_name" content="Portal Karbon" />
+        <link rel="canonical" href="https://portalkarbon.com" />
+        <link rel="icon" type="image/png" sizes="192x192" href="{{ site_settings.shortcut.url }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ site_settings.shortcut.url }}">
+        <link rel="icon" type="image/png" sizes="96x96" href="{{ site_settings.shortcut.url }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ site_settings.shortcut.url }}">
+        <link rel="apple-touch-icon" sizes="57x57" href="{{ site_settings.shortcut.url }}">
+        <link rel="apple-touch-icon" sizes="60x60" href="{{ site_settings.shortcut.url }}">
+        <link rel="apple-touch-icon" sizes="72x72" href="{{ site_settings.shortcut.url }}">
+        <link rel="apple-touch-icon" sizes="76x76" href="{{ site_settings.shortcut.url }}">
+        <link rel="apple-touch-icon" sizes="114x114" href="{{ site_settings.shortcut.url }}">
+        <link rel="apple-touch-icon" sizes="120x120" href="{{ site_settings.shortcut.url }}">
+        <link rel="apple-touch-icon" sizes="144x144" href="{{ site_settings.shortcut.url }}">
+        <link rel="apple-touch-icon" sizes="152x152" href="{{ site_settings.shortcut.url }}">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ site_settings.shortcut.url }}">
+        <meta name="author" content="Halim TURAN">
+        <meta name="generator" content="Portal Karbon v0.1">
+        <meta name="apple-touch-fullscreen" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="dark">
+
+        <!--begin::Fonts-->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+        <!--end::Fonts-->
+        <!--begin::Global Stylesheets Bundle(used by all pages)-->
+        <link href="{% static 'lib/metronic/assets/plugins/global/plugins.bundle.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'lib/metronic/assets/css/style.bundle.css' %}" rel="stylesheet" type="text/css" />
+        <!--begin::Custom CSS-->
+        <link href="{% static 'css/custom.css' %}" rel="stylesheet" type="text/css">
+        <!--begin::Extra CSS-->
+        {% block extra_css %}{% endblock %}
+    </head>
+    <body id="kt_app_body" data-bs-spy="scroll" data-bs-target="#kt_landing_menu" data-bs-offset="200" class="app-default position-relative">
+        <!--begin::loader-->
+        <div class="loader-wrapper" id="pageLoader">
+            <div class="loader">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <p class="text-center">Portal Karbon</p>
+        </div>
+        <!--end::loader-->
+        <!--begin::Main-->
+        <div class="d-flex flex-column flex-root">
+            <!--begin::Header Section-->
+            <div class="mb-0" id="home">
+                <!--begin::Wrapper-->
+                <div class="bgi-no-repeat bgi-size-contain bgi-position-x-center bgi-position-y-bottom">
+                    <!--begin::Header Block-->
+                    {% include 'web/header.html' %}
+                    <!--end::Header Block-->
+                    <!--begin:Content-->
+                    {% block content %}{% endblock %}
+                    <!--end::Content-->
+                    <!--begin::Footer-->
+                    {% include 'web/footer.html' %}
+                    <!--end::Footer-->
+                </div>
+                <!--end::Wrapper-->
+            </div>
+            <!--end::Header Section-->
+        </div>
+        <!--end::Main-->
+
+        <script>
+            const languageCode = '{{ request.LANGUAGE_CODE }}';
+            const userId = '{% if user.id %}{{ user.id }}{% endif %}';
+            const token = {'X-CSRFToken': '{{ csrf_token }}'};
+            const userPosition = "{{ user.position }}";
+            let hostUrl = "assets/";
+            let advisorId = 0;
+            const workingStatusId = "{{ user.advisor_working_status_to_user.all.0.id }}";
+            const workingStyle = "{{ user.working_life_to_user.all.0.working_style }}";
+            function changeLanguage(lang) {
+                $('#language').val(lang);
+                $('#languageForm').submit();
+            }
+            document.addEventListener("DOMContentLoaded", () => {
+              document.getElementById('pageLoader').style.display = "none";
+            });
+
+        </script>
+        <!--begin::Javascript-->
+        <!--begin::Global Javascript Bundle(used by all pages)-->
+        <script src="{% static 'lib/metronic/assets/plugins/global/plugins.bundle.js' %}"></script>
+        <script src="{% static 'lib/metronic/assets/js/scripts.bundle.js' %}"></script>
+        <!--end::Global Javascript Bundle-->
+        <!--begin::Page Vendors Javascript(used by this page)-->
+        <script src="{% static 'lib/metronic/assets/plugins/custom/fslightbox/fslightbox.bundle.js' %}"></script>
+        <script src="{% static 'lib/metronic/assets/plugins/custom/typedjs/typedjs.bundle.js' %}"></script>
+        <!--end::Page Vendors Javascript-->
+        <!--begin::Page Custom Javascript(used by this page)-->
+        <script src="{% static 'lib/metronic/assets/js/custom/landing.js' %}"></script>
+        <script src="{% static 'lib/metronic/assets/js/custom/pages/company/pricing.js' %}"></script>
+        <script src="{% static 'js/core.js' %}" type="module"></script>
+        <!--end::Page Custom Javascript-->
+        {% block extra_scripts %}{% endblock %}
+        <!--end::Javascript-->
+    </body>
+</html>

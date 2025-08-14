@@ -1,0 +1,288 @@
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="tr">
+    <head>
+        <title>Üye Ol | Karbon Platform</title>
+        <meta charset="utf-8" />
+        <meta name="description" content="{% block description %}{% endblock %}" />
+        <meta name="keywords" content="{% block keywords %}{% endblock %}" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:title" content="Online Karbon Emisyon, Hesaplama, Raporlama, Yönetme Platformu" />
+        <meta property="og:url" content="https://portalkarbon.com" />
+        <meta property="og:site_name" content="Portal Karbon" />
+        <link rel="canonical" href="https://portalkarbon.com" />
+        <link rel="icon" type="image/png" sizes="192x192" href="{{ site_settings.shortcut.url }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ site_settings.shortcut.url }}">
+        <link rel="icon" type="image/png" sizes="96x96" href="{{ site_settings.shortcut.url }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ site_settings.shortcut.url }}">
+        <link rel="apple-touch-icon" sizes="57x57" href="{{ site_settings.shortcut.url }}">
+        <link rel="apple-touch-icon" sizes="60x60" href="{{ site_settings.shortcut.url }}">
+        <link rel="apple-touch-icon" sizes="72x72" href="{{ site_settings.shortcut.url }}">
+        <link rel="apple-touch-icon" sizes="76x76" href="{{ site_settings.shortcut.url }}">
+        <link rel="apple-touch-icon" sizes="114x114" href="{{ site_settings.shortcut.url }}">
+        <link rel="apple-touch-icon" sizes="120x120" href="{{ site_settings.shortcut.url }}">
+        <link rel="apple-touch-icon" sizes="144x144" href="{{ site_settings.shortcut.url }}">
+        <link rel="apple-touch-icon" sizes="152x152" href="{{ site_settings.shortcut.url }}">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ site_settings.shortcut.url }}">
+        <meta name="author" content="Halim TURAN">
+        <meta name="generator" content="Portal Karbon v0.1">
+        <meta name="apple-touch-fullscreen" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="dark">
+
+        <!--begin::Fonts-->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+        <!--end::Fonts-->
+        <!--begin::Global Stylesheets Bundle(used by all pages)-->
+        <link href="{% static 'lib/metronic/assets/plugins/global/plugins.bundle.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'lib/metronic/assets/css/style.bundle.css' %}" rel="stylesheet" type="text/css" />
+        <!--begin::Custom CSS-->
+        <link href="{% static 'css/custom.css' %}" rel="stylesheet" type="text/css">
+        <!--begin::Extra CSS-->
+        {% block extra_css %}{% endblock %}
+    </head>
+
+    <body id="kt_body" class="app-blank">
+        <!--begin::Theme mode setup on page load-->
+        <script>
+            var defaultThemeMode = "light";
+            var themeMode;
+
+            if ( document.documentElement ) {
+                if ( document.documentElement.hasAttribute("data-bs-theme-mode")) {
+                    themeMode = document.documentElement.getAttribute("data-bs-theme-mode");
+                } else {
+                    if ( localStorage.getItem("data-bs-theme") !== null ) {
+                        themeMode = localStorage.getItem("data-bs-theme");
+                    } else {
+                        themeMode = defaultThemeMode;
+                    }
+                }
+
+                if (themeMode === "system") {
+                    themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+                }
+
+                document.documentElement.setAttribute("data-bs-theme", themeMode);
+            }
+        </script>
+        <!--end::Theme mode setup on page load-->
+
+        <!--begin::Root-->
+        <div class="d-flex flex-column flex-root" id="kt_app_root">
+            <!--begin::Authentication - Sign-up -->
+            <div class="d-flex flex-column flex-lg-row flex-column-fluid">
+
+                <!--begin::Aside-->
+                <div class="d-flex flex-lg-row-fluid w-lg-50 bgi-size-cover bgi-position-center order-1 order-lg-1" style="background-image: url({% static 'img/bg3.png' %})">
+                </div>
+                <!--end::Aside-->
+                <!--begin::Body-->
+                <div class="d-flex flex-column flex-lg-row-fluid w-lg-50 p-10 order-2 order-lg-2">
+                    <div class="d-flex flex-stack py-2">
+                        <!--begin::Back link-->
+                        <div class="me-2">
+                            <a href="/" class="btn btn-icon bg-light rounded-circle">
+                                <i class="ki-duotone ki-black-left fs-2 text-gray-800"></i>
+                            </a>
+                        </div>
+                        <!--end::Back link-->
+                    </div>
+                    <!--begin::Form-->
+                    <div class="d-flex flex-center flex-column flex-lg-row-fluid">
+                        <!--begin::Wrapper-->
+                        <div class="w-lg-500px p-10">
+                            <!--begin::Form-->
+                            <form class="form w-100 fv-plugins-bootstrap5 fv-plugins-framework" id="signup_form" method="post" action="{% url 'portal:sign_up' %}">
+                                {% csrf_token %}
+                                <!--begin::Heading-->
+                                <div class="text-center mb-11">
+                                    <!--begin::Title-->
+                                    <h1 class="text-gray-900 fw-bolder mb-3">
+                                        {% trans 'Hesap Oluştur' %}
+                                    </h1>
+                                    <!--end::Title-->
+
+                                    <!--begin::Subtitle-->
+                                    <div class="text-gray-500 fw-semibold fs-6">
+                                        Karbon Platform Panel
+                                    </div>
+                                    <!--end::Subtitle--->
+                                </div>
+                                <!--begin::Heading-->
+
+                                {% if messages %}
+                                    <div class="messages">
+                                    {% for message in messages %}
+                                        <div class="text-danger alert alert-{{ message.tags }}">
+                                            {{ message }}
+                                        </div>
+                                    {% endfor %}
+                                    </div>
+                                {% endif %}
+
+                                <div class="row fv-row mb-7 fv-plugins-icon-container">
+                                    <!--begin::Col-->
+                                    <div class="col-xl-6">
+                                        <input class="form-control form-control-lg form-control-solid" type="text" placeholder="{% trans 'Ad' %}" name="first_name" required data-kt-translate="sign-up-input-first-name">
+                                        <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
+                                    </div>
+                                    <!--end::Col-->
+
+                                    <!--begin::Col-->
+                                    <div class="col-xl-6">
+                                        <input class="form-control form-control-lg form-control-solid" type="text" placeholder="{% trans 'Soyad' %}" name="last_name" required data-kt-translate="sign-up-input-last-name">
+                                        <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
+                                <div class="row fv-row mb-7 fv-plugins-icon-container">
+                                    <!--begin::Col-->
+                                    <div class="col-xl-6">
+                                        <select name="country" id="country_select" data-control="select2" class="form-control form-control-lg form-control-solid" data-placeholder="Ülke" required></select>
+                                    </div>
+                                    <!--end::Col-->
+
+                                    <!--begin::Col-->
+                                    <div class="col-xl-6">
+                                        <select name="city" id="city_select" data-control="select2" class="form-control form-control-lg form-control-solid" data-placeholder="Şehir" required></select>
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
+                                <div class="fv-row mb-8 fv-plugins-icon-container">
+                                    <!--begin::Business Name-->
+                                    <input type="text" placeholder="{% trans 'Şirket İsmi' %}" name="company_name" autocomplete="off" class="form-control form-control-lg form-control-solid" required>
+                                    <!--end::Business Name-->
+                                    <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
+                                </div>
+
+                                <div class="fv-row mb-8 fv-plugins-icon-container">
+                                    <!--begin::Tax No-->
+                                    <input type="text" placeholder="{% trans 'Telefon' %}" name="phone" id="phone_input" autocomplete="off" class="form-control form-control-lg form-control-solid" required>
+                                    <!--end::Business Name-->
+                                    <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
+                                </div>
+
+                                <!--begin::Input group--->
+                                <div class="fv-row mb-8 fv-plugins-icon-container">
+                                    <!--begin::Email-->
+                                    <input type="text" placeholder="Email" name="email" autocomplete="off" class="form-control form-control-lg form-control-solid" required>
+                                    <!--end::Email-->
+                                    <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
+                                </div>
+
+                                <!--begin::Input group-->
+                                <div class="fv-row mb-8 fv-plugins-icon-container" data-kt-password-meter="true">
+                                    <!--begin::Wrapper-->
+                                    <div class="mb-1">
+                                        <!--begin::Input wrapper-->
+                                        <div class="position-relative mb-3">
+                                            <input class="form-control form-control-lg form-control-solid" type="password" placeholder="Password" name="password" required>
+
+                                            <span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2" data-kt-password-meter-control="visibility">
+                                                <i class="ki-duotone ki-eye-slash fs-2"></i>
+                                                <i class="ki-duotone ki-eye fs-2 d-none"></i>
+                                            </span>
+                                        </div>
+                                        <!--end::Input wrapper-->
+
+                                        <!--begin::Meter-->
+                                        <div class="d-flex align-items-center mb-3" data-kt-password-meter-control="highlight">
+                                            <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
+                                            <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
+                                            <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
+                                            <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px"></div>
+                                        </div>
+                                        <!--end::Meter-->
+                                    </div>
+                                    <!--end::Wrapper-->
+
+                                    <!--begin::Hint-->
+                                    <div class="text-muted">
+                                        {% trans 'Harf, rakam ve sembollerin karışımından oluşan 8 veya daha fazla karakter kullanın.' %}
+                                    </div>
+                                    <!--end::Hint-->
+                                <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div></div>
+                                <!--end::Input group--->
+
+                                <!--begin::re-password-->
+                                <div class="fv-row mb-8 fv-plugins-icon-container">
+                                    <!--begin::Repeat Password-->
+                                    <input type="password" placeholder="Parola (Tekrar)" name="confirm-password" autocomplete="off" class="form-control form-control-lg form-control-solid" required>
+                                    <!--end::Repeat Password-->
+                                    <div class="fv-plugins-message-container invalid-feedback"></div>
+                                </div>
+                                <!--end::re-password-->
+
+                                <!--begin::Accept-->
+                                <div class="fv-row mb-8 fv-plugins-icon-container">
+                                    <label class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="toc" value="1" required>
+                                        <span class="form-check-label fw-semibold text-gray-700 fs-base ms-1">
+                                            <a href="#" class="ms-1 link-primary">{% trans 'Şartları kabul ediyorum' %}</a>
+                                        </span>
+                                    </label>
+                                    <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
+                                </div>
+                                <!--end::Accept-->
+
+                                <!--begin::Submit button-->
+                                <div class="d-grid mb-10">
+                                    <button type="submit" id="kt_sign_up_submit" class="btn btn-primary">
+                                        <!--begin::Indicator label-->
+                                        <span class="indicator-label">
+                                            {% trans 'Hesap Oluştur' %}
+                                        </span>
+                                        <!--end::Indicator label-->
+
+                                        <!--begin::Indicator progress-->
+                                        <span class="indicator-progress">
+                                            {% trans 'Lütfen bekleyin' %}...    <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                        </span>
+                                        <!--end::Indicator progress-->
+                                    </button>
+                                </div>
+                                <!--end::Submit button-->
+
+                                <!--begin::Sign up-->
+                                <div class="text-gray-500 text-center fw-semibold fs-6">
+                                    {% trans 'Zaten bir hesabınız var mı?' %}
+
+                                    <a href="{% url 'account_login' %}" class="link-primary fw-semibold">
+                                        {% trans 'Giriş Yap' %}
+                                    </a>
+                                </div>
+                                <!--end::Sign up-->
+                            </form>
+                            <!--end::Form-->
+                        </div>
+                        <!--end::Wrapper-->
+                    </div>
+                    <!--end::Form-->
+                </div>
+                <!--end::Body-->
+            </div>
+            <!--end::Authentication - Sign-up-->
+        </div>
+        <!--end::Root-->
+
+        <!--begin::Javascript-->
+        <script>
+            var hostUrl = "/metronic8/demo1/assets/";
+            const token = {'X-CSRFToken': '{{ csrf_token }}'};
+        </script>
+
+        <!--begin::Global Javascript Bundle(mandatory for all pages)-->
+        <script src="{% static 'lib/metronic/assets/plugins/global/plugins.bundle.js' %}"></script>
+        <script src="{% static 'lib/metronic/assets/js/scripts.bundle.js' %}"></script>
+        <!--end::Global Javascript Bundle-->
+
+        <!--begin::Custom Javascript(used for this page only)-->
+        <script src="{% static 'lib/metronic/assets/js/custom/authentication/sign-up/general.js' %}"></script>
+        <!--end::Custom Javascript-->
+        <script src="{% static 'js/web/sign_up.js' %}" type="module"></script>
+        <!--end::Javascript-->
+    </body>
+</html>

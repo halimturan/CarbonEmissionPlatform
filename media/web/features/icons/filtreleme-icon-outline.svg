@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 128 128" role="img" aria-label="Filtreleme ikonu">
+  <style>
+    .stroke{stroke:#1f7a4c;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;fill:none;}
+  </style>
+
+  <!-- Simple funnel shape -->
+  <path d="M16 24h96l-40 48v32l-16 8V72z" class="stroke"/>
+</svg>

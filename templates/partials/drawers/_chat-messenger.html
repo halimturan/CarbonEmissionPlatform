@@ -1,0 +1,64 @@
+<!--begin::Chat drawer-->
+<div
+    id="kt_drawer_chat"
+    class="bg-body"
+    data-kt-drawer="true"
+	data-kt-drawer-name="chat"
+	data-kt-drawer-activate="true"
+	data-kt-drawer-overlay="true"
+	data-kt-drawer-width="{default:'300px', 'md': '500px'}"
+	data-kt-drawer-direction="end"
+	data-kt-drawer-toggle="#kt_drawer_chat_toggle"
+	data-kt-drawer-close="#kt_drawer_chat_close">
+    <!--begin::Messenger-->
+    <div class="card w-100 border-0 rounded-0" id="kt_drawer_chat_messenger">
+        <!--begin::Card header-->
+        <div class="card-header pe-5" id="kt_drawer_chat_messenger_header">
+            <!--begin::Title-->
+            <div class="card-title">
+                <!--begin::User-->
+                <div class="d-flex justify-content-center flex-column me-3">
+                    <span class="fs-4 fw-bold text-gray-900 text-hover-primary me-1 mb-2 lh-1">Belediyede Neler Oluyor?</span>
+                    <span class="fs-7 text-gray-600">Son güncelleme: <span id="notification_last_update"></span></span>
+                </div>
+                <!--end::User-->
+            </div>
+            <!--end::Title-->
+            <!--begin::Card toolbar-->
+            <div class="card-toolbar">
+                <!--begin::Close-->
+                <div class="btn btn-sm btn-icon btn-active-color-primary" id="kt_drawer_chat_close">
+                    <!--begin::Svg Icon | path: /var/www/preview.keenthemes.com/keenthemes/metronic/docs/core/html/src/media/icons/duotune/arrows/arr088.svg-->
+                    <span class="svg-icon svg-icon-muted svg-icon-2hx">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect opacity="0.5" x="7.05025" y="15.5356" width="12" height="2" rx="1" transform="rotate(-45 7.05025 15.5356)" fill="currentColor"></rect>
+                            <rect x="8.46447" y="7.05029" width="12" height="2" rx="1" transform="rotate(45 8.46447 7.05029)" fill="currentColor"></rect>
+                        </svg>
+                    </span>
+                    <!--end::Svg Icon-->
+                </div>
+                <!--end::Close-->
+            </div>
+            <!--end::Card toolbar-->
+        </div>
+        <!--end::Card header-->
+        <!--begin::Card body-->
+        <div class="card-body" id="kt_drawer_chat_messenger_body">
+            <!--begin::Messages-->
+            <div
+                class="scroll-y me-n5 pe-5"
+                data-kt-element="messages"
+                data-kt-scroll="true"
+                data-kt-scroll-activate="true"
+                data-kt-scroll-height="auto"
+                data-kt-scroll-dependencies="#kt_drawer_chat_messenger_header, #kt_drawer_chat_messenger_footer"
+                data-kt-scroll-wrappers="#kt_drawer_chat_messenger_body"
+                data-kt-scroll-offset="0px">
+            </div>
+            <!--end::Messages-->
+        </div>
+        <!--end::Card body-->
+    </div>
+    <!--end::Messenger-->
+</div>
+<!--end::Chat drawer-->

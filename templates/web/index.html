@@ -1,0 +1,27 @@
+{% extends 'web/layout.html' %}
+{% load i18n %}
+
+{% block title %}
+    {% trans 'Anasayfa' %}
+{% endblock %}
+
+{% block content %}
+    <!--begin::Main Slider-->
+    {% include 'web/partials/slider.html' %}
+    <!--end::Main Slider-->
+    <!--begin::features-->
+    {% include 'web/partials/features.html' %}
+    <!--end::features-->
+    <!--begin::content block-->
+    {% include 'web/partials/content_block.html' %}
+    <!--end::content block-->
+    <!--begin::why_use-->
+    {% include 'web/partials/why_use.html' %}
+    <!--end::why_use-->
+    <!--begin::pricing-->
+    {% include 'web/partials/pricing_block.html' %}
+    <!--end::pricing-->
+    <!--begin::faq-->
+    {% include 'web/partials/faq.html' %}
+    <!--end::faq-->
+{% endblock %}

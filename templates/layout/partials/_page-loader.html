@@ -1,0 +1,11 @@
+{% load static %}
+<!--begin::loader-->
+	<div class="page-loader flex-column bg-dark bg-opacity-75" id="page_loader">
+		<img alt="Logo" class="theme-light-show max-h-50px h-150px" src="{% static 'img/fatih_logo.svg' %}"/>
+		<img alt="Logo" class="theme-dark-show max-h-50px h-150px" src="{% static 'img/fatih_logo.svg' %}"/>
+		<div class="d-flex align-items-center mt-5">
+			<span class="spinner-border text-white" role="status"></span>
+			<span class="text-white fs-6 fw-semibold ms-5">Yükleniyor...</span>
+		</div>
+	</div>
+<!--end::Loader-->

@@ -1,0 +1,50 @@
+{% load i18n %}
+
+{% if faq %}
+<!--begin::container-->
+<div class="separator my-10"></div>
+<div class="container my-10">
+    <!--begin::title-->
+    <div class="text-center mb-17">
+        <!--begin::Title-->
+        <h3 class="fs-2hx text-dark mb-5" id="how-it-works" data-kt-scroll-offset="{default: 100, lg: 150}">{% trans 'Sıkça Sorulan Sorular' %}</h3>
+        <!--end::Title-->
+    </div>
+    <!--end::title-->
+    <!--begin::card-->
+    <div class="card p-10 ">
+        <!--begin::Accordion-->
+        <div class="accordion accordion-icon-toggle" id="kt_accordion_3">
+            {% for f in faq %}
+                <!--begin::Item-->
+                <div class="mb-5">
+                    <!--begin::Header-->
+                    <div class="accordion-header py-3 d-flex {% if forloop.counter != 1 %}collapsed{% endif %}" data-bs-toggle="collapse" data-bs-target="#kt_accordion_3_item_{{ forloop.counter }}">
+                        <span class="accordion-icon">
+                            <!--begin::Svg Icon-->
+                            <span class="svg-icon svg-icon-muted">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.9 10.7L7 5V19L16.9 13.3C17.9 12.7 17.9 11.3 16.9 10.7Z" fill="currentColor"></path>
+                                </svg>
+                            </span>
+                            <!--end::Svg Icon-->
+                        </span>
+                        <h3 class="fs-4 fw-semibold mb-0 ms-4 fw-bold">{{ f.question }}</h3>
+                    </div>
+                    <!--end::Header-->
+
+                    <!--begin::Body-->
+                    <div id="kt_accordion_3_item_{{ forloop.counter }}" class="fs-6 collapse {% if forloop.counter == 1 %}show {% endif %} ps-10" data-bs-parent="#kt_accordion_3">
+                            {{ f.answer }}
+                    </div>
+                    <!--end::Body-->
+                </div>
+                <!--end::Item-->
+            {% endfor %}
+        </div>
+        <!--end::Accordion-->
+    </div>
+    <!--end::card-->
+</div>
+<!--end::container-->
+{% endif %}

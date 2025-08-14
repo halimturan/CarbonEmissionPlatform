@@ -1,0 +1,138 @@
+{% load static i18n %}
+
+<a id="whtasappBtn" class="position-fixed btn btn-lg btn-icon btn-success w-75px h-75px z-index-1" href="https://wa.me/{{ site_settings.phone }}" rel="nofollow" target="_blank" style="right: 30px; bottom: 30px">
+    <i class="fs-4x lab la-whatsapp"></i></a>
+<div class="landing-curve landing-dark-color ">
+    <svg viewBox="15 -1 1470 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 48C4.93573 47.6644 8.85984 47.3311 12.7725 47H1489.16C1493.1 47.3311 1497.04 47.6644 1501 48V47H1489.16C914.668 -1.34764 587.282 -1.61174 12.7725 47H1V48Z" fill="currentColor"></path>
+    </svg>
+</div>
+<div class="landing-dark-bg">
+    <!--begin::Container-->
+    <div class="container">
+        <!--begin::Row-->
+        <div class="row py-10 py-lg-20">
+            <!--begin::Col-->
+            <div class="col-lg-6 col-md-6 pe-lg-16 mb-10 mb-lg-0">
+                <!--begin:Block-->
+                <img src="{{ site_settings.logo.url }}" class="w-350px mx-5" alt="logo">
+                <!--end::Block-->
+
+                <!--begin::Block-->
+                <div class="text-gray-700 fs-3 d-flex align-items-center mb-5 mt-5">
+                    <i class="las la-map-marked-alt fs-3x mx-5"></i>
+                    <span class="w-50">{{ site_settings.address }}</span>
+                </div>
+                <!--end::Block-->
+
+                <!--begin::Block-->
+                <div class="text-gray-700 fs-3 d-flex align-items-center mt-5 mb-5">
+                    <i class="las la-phone fs-3x mx-5"></i>
+                    <span>{{ site_settings.phone }}</span>
+                </div>
+                <!--end::Block-->
+
+                <!--begin::Block-->
+                <div class="text-gray-700 fs-3 d-flex align-items-center mt-5">
+                    <i class="las la-envelope fs-3x mx-5"></i>
+                    <span>{{ site_settings.email }}</span>
+                </div>
+                <!--end::Block-->
+            </div>
+            <!--end::Col-->
+
+            <!--begin::Col-->
+            <div class="col-lg-6 col-md-6 ps-lg-16">
+                <!--begin::Navs-->
+                <div class="d-flex justify-content-center">
+                    <!--begin::Links-->
+                    <div class="d-flex fw-semibold flex-column me-20">
+                        <!--begin::Subtitle-->
+                        <h4 class="fw-bold text-gray-400 mb-6">{% trans 'Sunduklarımız' %}</h4>
+                        <!--end::Subtitle-->
+
+                        {% for item in footer_menu %}
+                            <!--begin::Link-->
+                            <a href="{{ item.url}}" class="text-white opacity-50 text-hover-primary fs-5 mb-6">{{ item.name }}</a>
+                            <!--end::Link-->
+                        {% endfor %}
+                    </div>
+                    <!--end::Links-->
+
+                    <!--begin::Links-->
+                    <div class="d-flex fw-semibold flex-column ms-lg-20">
+                        <!--begin::Subtitle-->
+                        <h4 class="fw-bold text-gray-400 mb-6">{% trans 'Sosyal Medya' %}</h4>
+                        <!--end::Subtitle-->
+
+                        <!--begin::Link-->
+                        <a href="{{ social_media_settings.facebook }}" class="mb-6">
+                            <img src="{% static 'lib/metronic/assets/media/svg/brand-logos/facebook-4.svg' %}" class="h-20px me-2" alt="">
+                            <span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Facebook</span>
+                        </a>
+                        <!--end::Link-->
+
+                        <!--begin::Link-->
+                        <a href="{{ social_media_settings.twitter }}" class="mb-6">
+                            <img src="{% static 'lib/metronic/assets/media/svg/brand-logos/twitter.svg' %}" class="h-20px me-2" alt="">
+                            <span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Twitter</span>
+                        </a>
+                        <!--end::Link-->
+
+                        <!--begin::Link-->
+                        <a href="{{ social_media_settings.instagram }}" class="mb-6">
+                            <img src="{% static 'lib/metronic/assets/media/svg/brand-logos/instagram-2-1.svg' %}" class="h-20px me-2" alt="">
+                            <span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Instagram</span>
+                        </a>
+                        <!--end::Link-->
+                    </div>
+                    <!--end::Links-->
+                </div>
+                <!--end::Navs-->
+            </div>
+            <!--end::Col-->
+        </div>
+        <!--end::Row-->
+    </div>
+    <!--end::Container-->
+
+    <!--begin::Separator-->
+    <div class="landing-dark-separator"></div>
+    <!--end::Separator-->
+
+    <!--begin::Container-->
+    <div class="container">
+        <!--begin::Wrapper-->
+        <div class="d-flex flex-column flex-md-row flex-stack py-7 py-lg-10">
+            <!--begin::Copyright-->
+            <div class="d-flex align-items-center order-2 order-md-1">
+                <!--begin::Logo-->
+                <a href="/">
+                    <img alt="Logo" src="{{ site_settings.logo.url }}" class="h-15px h-md-20px">
+                </a>
+                <!--end::Logo image-->
+
+                <!--begin::Logo image-->
+                <span class="mx-5 fs-6 fw-semibold text-gray-600 pt-1" href="https://keenthemes.com">
+                    © 2025 {% trans 'Her hakkı saklıdır.' %}
+                </span>
+                <!--end::Logo image-->
+            </div>
+            <!--end::Copyright-->
+
+            <!--begin::Menu-->
+            <ul class="menu menu-gray-600 menu-hover-primary fw-semibold fs-6 fs-md-5 order-1 mb-5 mb-md-0">
+                <li class="menu-item mx-5">
+{#                    <a href="{% url 'sitemaps' %}" target="_blank" class="menu-link px-2">Site Haritası</a>#}
+                </li>
+
+                <li class="menu-item">
+{#                    <a href="{% url 'main:contact' %}" class="menu-link px-2">{% trans 'İletişim' %}</a>#}
+                </li>
+            </ul>
+            <!--end::Menu-->
+        </div>
+        <!--end::Wrapper-->
+    </div>
+    <!--end::Container-->
+</div>

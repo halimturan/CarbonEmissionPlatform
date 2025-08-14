@@ -1,0 +1,68 @@
+<div class="tns tns-default" style="background: #236f53; direction: ltr">
+    <!--begin::Slider-->
+    <div
+    data-tns="true"
+    data-tns-loop="true"
+    data-tns-swipe-angle="false"
+    data-tns-speed="2000"
+    data-tns-autoplay="true"
+    data-tns-autoplay-timeout="18000"
+    data-tns-controls="true"
+    data-tns-nav="false"
+    data-tns-items="1"
+    data-tns-center="false"
+    data-tns-dots="false"
+    data-tns-prev-button="#kt_team_slider_prev1"
+    data-tns-next-button="#kt_team_slider_next1">
+
+        {% for slide in sliders %}
+            {% if slide.is_publish or request.user.is_authenticated %}
+            <!--begin::Item-->
+            <div class="container mt-10">
+                <div class="d-flex">
+                    {% if slide.image_alignment == "left" %}
+                        <div class="symbol w-100px h-100px w-sm-200px h-sm-200px w-lg-500px h-lg-400px p-lg-10 mx-5 mx-md-10 flex-center align-center">
+                            <div class="symbol-label w-100 h-100" style="background-color: transparent; background-image:url({{ slide.image.url }})"></div>
+                        </div>
+                        <div class="d-flex p-lg-10 mx-md-10 flex-center align-center">
+                            <span class="fs-md-2hx fs-3 fs-lg-3qx text-white">{{ slide.text|safe }}</span>
+                        </div>
+                    {% else %}
+                        <div class="d-flex p-lg-10 mx-md-10 flex-center align-center">
+                            <span class="fs-md-2hx fs-3 fs-lg-3qx text-white">{{ slide.text|safe }}</span>
+                        </div>
+                        <div class="symbol w-100px h-100px w-sm-200px h-sm-200px w-lg-500px h-lg-400px symbol-circle p-lg-10 mx-5 mx-md-10 flex-center align-center">
+                            <div class="symbol-label w-100 h-100" style="background-color: transparent; background-image:url({{ slide.image.url }})"></div>
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="w-100 d-flex mt-5 mt-lg-1 justify-content-center mb-10">
+                    <a href="{{ slide.link }}" class="btn btn-light-success fs-1 w-100px w-lg-300px">{{ slide.button_text }}</a>
+                </div>
+            </div>
+            <!--end::Item-->
+            {% endif %}
+        {% endfor %}
+    </div>
+    <!--end::Slider-->
+
+    <!--begin::Slider button-->
+    <button class="btn btn-icon btn-active-color-primary" id="kt_team_slider_prev1">
+        <span class="svg-icon svg-icon-muted svg-icon-3x">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.6 4L9.6 12L17.6 20H13.6L6.3 12.7C5.9 12.3 5.9 11.7 6.3 11.3L13.6 4H17.6Z" fill="currentColor"></path>
+            </svg>
+        </span>
+    </button>
+    <!--end::Slider button-->
+
+    <!--begin::Slider button-->
+    <button class="btn btn-icon btn-active-color-primary" id="kt_team_slider_next1">
+        <span class="svg-icon svg-icon-muted svg-icon-3x">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 4L14 12L6 20H10L17.3 12.7C17.7 12.3 17.7 11.7 17.3 11.3L10 4H6Z" fill="currentColor"></path>
+            </svg>
+        </span>
+    </button>
+    <!--end::Slider button-->
+</div>

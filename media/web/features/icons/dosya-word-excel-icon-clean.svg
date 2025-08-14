@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 128 128" role="img" aria-label="Dosya ikonu - Word/Excel ipuçlarıyla">
+  <style>
+    .stroke{stroke:#1f7a4c;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;fill:none;}
+    .fillB{fill:#2b6cb0;}  /* Word-ish blue */
+    .fillX{fill:#2f855a;}  /* Excel-ish green */
+    .thin{stroke:#1f7a4c;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none;}
+  </style>
+
+  <!-- Main file/document with folded corner -->
+  <path d="M28 16h52l16 16v72a8 8 0 0 1-8 8H28a8 8 0 0 1-8-8V24a8 8 0 0 1 8-8z" class="stroke"/>
+  <!-- folded corner triangle -->
+  <path d="M80 16l16 16H88a8 8 0 0 1-8-8V16z" class="thin"/>
+
+  <!-- File lines -->
+  <line x1="36" y1="44" x2="84" y2="44" class="thin"/>
+  <line x1="36" y1="56" x2="84" y2="56" class="thin"/>
+  <line x1="36" y1="68" x2="84" y2="68" class="thin"/>
+
+  <!-- 'W' tab -->
+  <g transform="translate(36,80)">
+    <rect x="0" y="0" width="24" height="18" rx="3" class="fillB" />
+    <path d="M6 5l3 8 3-6 3 6 3-8" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- 'X' tab -->
+  <g transform="translate(66,80)">
+    <rect x="0" y="0" width="24" height="18" rx="3" class="fillX" />
+    <path d="M6 5l12 8M18 5L6 13" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

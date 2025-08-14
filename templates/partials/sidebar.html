@@ -1,0 +1,245 @@
+{% load static %}
+<div id="slide-out" class="side-nav fixed z-depth-0" style="background-image: url({% static 'img/sidebar_img2.png' %});}">
+  <ul class="custom-scrollbar">
+    <!-- Logo -->
+    <li>
+      <div class="logo-wrapper waves-light h-200px">
+        <a href="#">
+            <img src="{% static 'img/logo.png' %}" alt="logo" class="img-fluid flex-center">
+        </a>
+      </div>
+    </li>
+    <!--/. Logo -->
+    <!-- Side navigation links -->
+    <li>
+        <!--begin::accordion-->
+        <ul class="collapsible collapsible-accordion">
+            {% if 'genel_toplam' in pages %}
+            <!--begin::menu-item-->
+            <li class="menu-item">
+                <a class="collapsible-header waves-effect arrow-r" id="main_page" href="{% url 'detail' slug="genel_toplam" %}">
+                    <i class="fas fa-home"></i> Anasayfa
+                </a>
+            </li>
+            <!--end::menu-item-->
+            {% endif %}
+
+            {% if 'wifi' in pages %}
+            <!--begin::menu-item-->
+            <li class="menu-item">
+                <a class="collapsible-header waves-effect arrow-r">
+                    <i class="fas fa-computer"></i>Bilgi İşlem<i class="fas fa-angle-down rotate-icon mt-2"></i>
+                </a>
+                <div class="collapsible-body">
+                    <ul>
+                      <li>
+                          <a href="{% url 'detail' slug="wifi" %}" class="waves-effect"><i class="fa fa-wifi"></i> Wifi</a>
+                      </li>
+                    </ul>
+                </div>
+            </li>
+            <!--end::menu-item-->
+            {% endif %}
+
+            {% if 'spor_tesisleri' in pages or 'bilgi_evler' in pages %}
+            <!--begin::menu-item-->
+            <li class="menu-item">
+                <a class="collapsible-header waves-effect arrow-r" id="youngAndSportPage">
+                    <i class="fas fa-person-running"></i>Gençlik ve Spor Hizmetleri<i class="fas fa-angle-down rotate-icon mt-2"></i>
+                </a>
+                <div class="collapsible-body">
+                    <ul>
+                      {% if 'kutuphaneler' in pages %}
+                      <li>
+                          <a id="kutuphaneBtn" href="{% url 'detail' slug="kutuphaneler" %}" class="waves-effect"><i class="fa fa-book-open"></i> Kütüphaneler</a>
+                      </li>
+                      {% endif %}
+                      {% if 'spor_tesisleri' in pages %}
+                      <li>
+                          <a id="sporTesisleriBtn" href="{% url 'detail' slug="spor_tesisleri" %}" class="waves-effect"><i class="fa fa-person-running"></i> Spor Tesisleri</a>
+                      </li>
+                      {% endif %}
+                      {% if 'bilgi_evleri' in pages %}
+                      <li>
+                          <a id="bilgiEvleriBtn" href="{% url 'detail' slug="bilgi_evleri" %}" class="waves-effect"><i class="fa fa-home"></i> Bilgi Evleri</a>
+                      </li>
+                      {% endif %}
+                      {% if 'bilim_fatih' in pages %}
+                      <li>
+                          <a id="bilimFatihBtn" href="{% url 'detail' slug="bilim_fatih" %}" class="waves-effect"><i class="fa fa-flask"></i> Bilim Fatih</a>
+                      </li>
+                      {% endif %}
+                      {% if 'medrese_davutpasa' in pages %}
+                      <li>
+                          <a id="medreseDavutpasaBtn" href="{% url 'detail' slug="medrese_davutpasa" %}" class="waves-effect"><i class="fa fa-mosque"></i> Medrese Davutpaşa</a>
+                      </li>
+                      {% endif %}
+                    </ul>
+                </div>
+            </li>
+            <!--end::menu-item-->
+            {% endif %}
+            {% if 'sulukule_sanat_akademisi' in pages or 'karinca' in pages or 'kadin_aile_birimi' in pages or 'gezi' in pages %}
+            <!--begin::menu-item-->
+            <li class="menu-item">
+                <a class="collapsible-header waves-effect arrow-r" id="artPage">
+                    <i class="fas fa-music"></i>Kültür İşleri<i class="fas fa-angle-down rotate-icon mt-2"></i>
+                </a>
+                <div class="collapsible-body">
+                    <ul>
+                      {% if 'sulukule_sanat_akademisi' in pages %}
+                      <li>
+                          <a id="sulukuleSanatAkademisiBtn" href="{% url 'detail' slug="sulukule_sanat_akademisi" %}" class="waves-effect"><i class="fa fa-masks-theater"></i> Sulukule Sanat Akademisi</a>
+                      </li>
+                      {% endif %}
+                      {% if 'karinca' in pages %}
+                      <li>
+                          <a id="karincaBtn" href="{% url 'detail' slug="karinca" %}" class="waves-effect"><i class="fa fa-bug"></i> Karınca</a>
+                      </li>
+                      {% endif %}
+                      {% if 'kadin_aile_birimi' in pages %}
+                      <li>
+                          <a id="kadinAileBirimiBtn" href="{% url 'detail' slug="kadin_aile_birimi" %}" class="waves-effect"><i class="fa fa-person-dress"></i> Kadın Aile Birimi</a>
+                      </li>
+                      {% endif %}
+                      {% if 'gezi' in pages %}
+                      <li>
+                          <a id="geziBtn" href="{% url 'detail' slug="gezi" %}" class="waves-effect"><i class="fa fa-cart-flatbed-suitcase"></i> Gezi</a>
+                      </li>
+                      {% endif %}
+                    </ul>
+                </div>
+            </li>
+            <!--end::menu-item-->
+            {% endif %}
+            {% if 'engelliler_is_atolyesi' in pages or 'sunnet' in pages %}
+            <!--begin::menu-item-->
+            <li class="menu-item">
+                <a class="collapsible-header waves-effect arrow-r" id="socialHelpPage">
+                    <i class="fas fa-hand-holding-heart"></i>Sosyal Yardım<i class="fas fa-angle-down rotate-icon mt-2"></i>
+                </a>
+                <div class="collapsible-body">
+                    <ul>
+                      {% if 'engelliler_is_atolyesi' in pages %}
+                      <li>
+                          <a id="engellilerIsAtolyesiBtn" href="{% url 'detail' slug="engelliler_is_atolyesi" %}" class="waves-effect"><i class="fa fa-wheelchair"></i> Engelliler İş Atolyesi</a>
+                      </li>
+                      {% endif %}
+                      {% if 'sunnet' in pages %}
+                      <li>
+                          <a id="sunnetBtn" href="{% url 'detail' slug="sunnet" %}" class="waves-effect"><i class="fa fa-child"></i> Sünnet Hizmeti</a>
+                      </li>
+                      {% endif %}
+                    </ul>
+                </div>
+            </li>
+            <!--end::menu-item-->
+            {% endif %}
+            {% if 'fabim' in pages %}
+            <li class="menu-item">
+                <a class="collapsible-header waves-effect arrow-r" id="pressPage">
+                    <i class="fas fa-camera"></i>Basın Yayın<i class="fas fa-angle-down rotate-icon mt-2"></i>
+                </a>
+                <div class="collapsible-body">
+                    <ul>
+                      <li>
+                          <a id="fabimBtn" href="{% url 'detail' slug="fabim" %}" class="waves-effect"><i class="fa fa-phone"></i> Fabim</a>
+                      </li>
+                    </ul>
+                </div>
+            </li>
+            {% endif %}
+            {% if 'emlak' in pages or 'cevre_temizlik' in pages or 'eglence' in pages or 'ilan' in pages or 'atik' in pages %}
+            <li class="menu-item">
+                <a class="collapsible-header waves-effect arrow-r" id="financialPage">
+                    <i class="fas fa-turkish-lira-sign"></i>Mali Hizmetler<i class="fas fa-angle-down rotate-icon mt-2"></i>
+                </a>
+                <div class="collapsible-body">
+                    <ul>
+                      {% if 'emlak' in pages %}
+                      <li>
+                          <a id="emlakBtn" href="{% url 'detail' slug="emlak" %}" class="waves-effect"><i class="fa fa-building-user"></i> Emlak</a>
+                      </li>
+                      {% endif %}
+                      {% if 'cevre_temizlik' in pages %}
+                      <li>
+                          <a id="ctvBtn" href="{% url 'detail' slug="cevre_temizlik" %}" class="waves-effect"><i class="fa fa-leaf"></i> Çevre Temizlik</a>
+                      </li>
+                      {% endif %}
+                      {% if 'eglence' in pages %}
+                      <li>
+                          <a id="eglBtn" href="{% url 'detail' slug="eglence" %}" class="waves-effect"><i class="fa fa-child-reaching"></i> Eğlence</a>
+                      </li>
+                      {% endif %}
+                      {% if 'ilan' in pages %}
+                      <li>
+                          <a id="ilnBtn" href="{% url 'detail' slug="ilan" %}" class="waves-effect"><i class="fa fa-file-lines"></i> İlan</a>
+                      </li>
+                      {% endif %}
+                      {% if 'atik' in pages %}
+                      <li>
+                          <a id="katBtn" href="{% url 'detail' slug="atik" %}" class="waves-effect"><i class="fa fa-recycle"></i> Atık</a>
+                      </li>
+                      {% endif %}
+                    </ul>
+                </div>
+            </li>
+            {% endif %}
+            {% if 'isgaliye' in pages %}
+            <li class="menu-item">
+                <a class="collapsible-header waves-effect arrow-r" id="policePage">
+                    <i class="fas fa-car-on"></i>Zabıta Müdürlüğü<i class="fas fa-angle-down rotate-icon mt-2"></i>
+                </a>
+                <div class="collapsible-body">
+                    <ul>
+                      <li>
+                          <a id="isgBtn" href="{% url 'detail' slug="isgaliye" %}" class="waves-effect"><i class="fa fa-store"></i> İşgaliye</a>
+                      </li>
+                    </ul>
+                </div>
+            </li>
+            {% endif %}
+            {% if 'ecrimisil' in pages %}
+            <li class="menu-item">
+                <a class="collapsible-header waves-effect arrow-r" id="statePage">
+                    <i class="fas fa-building-user"></i>Emlak ve İstimlak<i class="fas fa-angle-down rotate-icon mt-2"></i>
+                </a>
+                <div class="collapsible-body">
+                    <ul>
+                      <li>
+                          <a id="ecrBtn" href="{% url 'detail' slug="ecrimisil" %}" class="waves-effect"><i class="fa fa-shop-lock"></i> Ecri-Misil</a>
+                      </li>
+                    </ul>
+                </div>
+            </li>
+            {% endif %}
+            {% if 'ruhsat' in pages %}
+            <li class="menu-item">
+                <a class="collapsible-header waves-effect arrow-r" id="licensePage">
+                    <i class="fas fa-newspaper"></i>Ruhsat ve Denetim<i class="fas fa-angle-down rotate-icon mt-2"></i>
+                </a>
+                <div class="collapsible-body">
+                    <ul>
+                      <li>
+                          <a id="ruhsatBtn" href="{% url 'detail' slug="ruhsat" %}" class="waves-effect"><i class="fa fa-id-card"></i> Ruhsat</a>
+                      </li>
+                    </ul>
+                </div>
+            </li>
+            {% endif %}
+            {% if 'islemler' in pages %}
+            <!--begin::menu-item-->
+            <li class="menu-item">
+                <a class="collapsible-header waves-effect arrow-r" id="process_page" href="{% url 'detail' slug="islemler" %}">
+                    <i class="fas fa-comment"></i> İşlemler
+                </a>
+            </li>
+            <!--end::menu-item-->
+            {% endif %}
+        </ul>
+        <!--end::accordion-->
+    </li>
+    <!--/. Side navigation links -->
+  </ul>
+  <div class="sidenav-bg mask-strong"></div>
+</div>

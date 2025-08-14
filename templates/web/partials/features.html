@@ -1,0 +1,42 @@
+{% load i18n %}
+
+{% if features %}
+<div class="separator my-10"></div>
+<!--begin::container-->
+<div class="container my-10">
+    <!--begin::title-->
+    <div class="text-center mb-17 container">
+        <!--begin::Title-->
+        <h3 class="fs-2hx text-dark mb-5" id="how-it-works" data-kt-scroll-offset="{default: 100, lg: 150}">{% trans 'Özellikler' %}</h3>
+        <!--end::Title-->
+        <!--begin::description-->
+        <span class="fs-2 fw-bolder text-gray-600 container">
+            {% blocktranslate %} Karbon Platform, firmaların kurumsal karbon ayak izlerinin ISO 14064-1:2018 Standardı ve GHG Protokol kapsamında hesaplama ve raporlamasını yapan; aynı zamanda emisyonlarının azaltımına yönelik stratejiler oluşturmasına imkan sağlayan, kullanıcı dostu bir yazılımdır. {% endblocktranslate%}
+        </span>
+        <!--end::description-->
+    </div>
+    <!--end::title-->
+    <!--begin::items-->
+    <div class="row d-flex justify-content-center container-fluid">
+        {% for feature in features %}
+            <!--begin::col-->
+            <div class="col-mx-12 col-sm-4 col-lg-3">
+                <div class="notice d-flex align-items-center bg-light rounded border-success border border-dashed mb-9 p-6">
+                    <!--begin::img-->
+                    <img src="{{ feature.icon.url }}" class="rounded-3 mb-4 w-125px h-50px w-xxl-60px h-xxl-60px" alt="">
+                    <!--end::img-->
+                    <span class="d-block fw-semibold text-start mx-5 h-125px">
+                        <span class="text-gray-700 fw-bold d-block fs-3 mb-2">
+                            {{ feature.title }}
+                        </span>
+                        <span class="text-muted fw-semibold fs-6">{{ feature.description }}</span>
+                    </span>
+                </div>
+            </div>
+            <!--end::col-->
+        {% endfor %}
+    </div>
+    <!--end::items-->
+</div>
+<!--end::container-->
+{% endif %}

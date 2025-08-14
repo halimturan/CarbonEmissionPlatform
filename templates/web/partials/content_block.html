@@ -1,0 +1,22 @@
+{% load i18n %}
+
+{% if content_block %}
+    <div class="container-fluid my-10 p-10" style="background: #3a5a3d">
+        <div class="d-flex justify-content-center">
+            <div class="container row py-10">
+                <div class="col-lg-6 col-xs-12 d-flex align-items-center justify-content-center h-100">
+                    <span class="fs-1 text-white">
+                        {{ content_block.text|safe }}
+                        <div class="d-flex justify-content-center mt-3 pt-3">
+                            <a href="{% url 'portal:sign_up' %}" class="btn btn-primary btn-light-success w-200px">{% trans 'Üye Ol' %}</a>
+                        </div>
+                    </span>
+                </div>
+
+                <div class="col-lg-6 col-xs-12">
+                    <img src="{{ content_block.image.url }}" alt="content_block_image" class="h-xl-400px h-xs-300px border border-width-3 border-white rounded">
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}

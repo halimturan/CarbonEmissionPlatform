@@ -1,0 +1,18 @@
+{% extends "admin/change_form.html" %}
+
+{% block extrahead %}
+    <style>
+     .select2-container {width: 100% !important;}
+     .parler-language-tabs { border-bottom: none !important;}
+     .select2-container--default .select2-selection--multiple{ padding: 10px 10px 10px 10px; !important; }
+     .select2-container--default .select2-selection--multiple .select2-selection__choice__display {
+        padding-left: 10px !important; padding-right: 10px !important;
+     }
+     .select2-container--default .select2-selection--multiple .select2-selection__choice {background-color: #778899;}
+     .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {color: #ffffff}
+    </style>
+    <script>
+        window.CKEDITOR_BASEPATH = "https://cdnanket.baykartech.com/static/ckeditor/ckeditor/";
+    </script>
+{{ block.super }}
+{% endblock %}

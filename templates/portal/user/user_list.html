@@ -1,0 +1,22 @@
+{% extends 'portal/layout.html' %}
+{% load i18n %}
+
+{% block title %}{% trans 'Kullanıcı İşlemleri' %}{% endblock %}
+
+{% block content %}
+    <div id="listPanel" class="d-none w-100 table-responsive">
+        <table id="generalTotalTable" class="table  gs-7 gy-7 gx-7" width="100%">
+          <thead>
+            <tr>
+              <th class="th-sm">{% trans 'Ad' %}</th>
+              <th class="th-sm">{% trans 'Soyad' %}</th>
+              <th class="th-sm">{% trans 'TC' %}</th>
+              <th class="th-sm">{% trans 'Mail' %}</th>
+              <th class="th-sm">{% trans 'Telefon' %}</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+    </div>
+{% endblock %}

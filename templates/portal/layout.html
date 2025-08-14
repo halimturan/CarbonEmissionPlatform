@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="tr" >
+    <!--begin::Head-->
+    <head>
+        <base href=""/>
+        <title>Karbon Platform Panel</title>
+        <meta charset="utf-8"/>
+        <meta property="og:title" content="Online Karbon Emisyon, Hesaplama, Raporlama, Yönetme Platformu" />
+        <meta property="og:url" content="https://portalkarbon.com" />
+        <meta property="og:site_name" content="Portal Karbon" />
+        <link rel="canonical" href="https://portalkarbon.com" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta property="og:locale" content="tr_TR" />
+        <meta property="og:type" content="article" />
+        <link rel="manifest" href="/static/manifest.json">
+        <link rel="icon" type="image/png" sizes="192x192" href="{{ site_settings.shortcut.url }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ site_settings.shortcut.url }}">
+        <link rel="icon" type="image/png" sizes="96x96" href="{{ site_settings.shortcut.url }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ site_settings.shortcut.url }}">
+        <link rel="apple-touch-icon" sizes="57x57" href="{{ site_settings.shortcut.url }}">
+        <link rel="apple-touch-icon" sizes="60x60" href="{{ site_settings.shortcut.url }}">
+        <link rel="apple-touch-icon" sizes="72x72" href="{{ site_settings.shortcut.url }}">
+        <link rel="apple-touch-icon" sizes="76x76" href="{{ site_settings.shortcut.url }}">
+        <link rel="apple-touch-icon" sizes="114x114" href="{{ site_settings.shortcut.url }}">
+        <link rel="apple-touch-icon" sizes="120x120" href="{{ site_settings.shortcut.url }}">
+        <link rel="apple-touch-icon" sizes="144x144" href="{{ site_settings.shortcut.url }}">
+        <link rel="apple-touch-icon" sizes="152x152" href="{{ site_settings.shortcut.url }}">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ site_settings.shortcut.url }}">
+        <!--begin::Fonts(mandatory for all pages)-->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700"/>
+        <!--end::Fonts-->
+        <!--begin::Vendor Stylesheets(used for this page only)-->
+        <link href="{% static 'lib/metronic/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'lib/metronic/assets/plugins/custom/datatables/datatables.bundle.css' %}" rel="stylesheet" type="text/css"/>
+        <!--end::Vendor Stylesheets-->
+        <!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
+        <link href="{% static 'lib/metronic/assets/plugins/global/plugins.bundle.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'lib/metronic/assets/css/style.bundle.css' %}" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'lib/kendo/styles/kendo.common.min.css' %}" />
+        <link rel="stylesheet" id="kendo_style" type="text/css" href="{% static 'lib/kendo/styles/kendo.default.min.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'lib/kendo/styles/kendo.default.mobile.min.css' %}" />
+        <!--end::Global Stylesheets Bundle-->
+        <!--begin::Mapbox-->
+        <link href="{% static 'lib/mapbox/mapbox-gl.css' %}" rel="stylesheet">
+        <script src="{% static 'lib/mapbox/mapbox-gl.js' %}"></script>
+        <!--end::Mapbox-->
+        <script>
+            // Frame-busting to prevent site from being loaded within a frame without permission (click-jacking)
+            if (window.top !== window.self) {
+                window.top.location.replace(window.self.location.href);
+            }
+        </script>
+    </head>
+    <!--end::Head-->
+    <!--begin::Body-->
+    <body  id="kt_app_body" data-kt-app-page-loading-enabled="true" data-kt-app-page-loading="on" data-kt-app-layout="light-sidebar" data-kt-app-header-fixed="true" data-kt-app-sidebar-enabled="true" data-kt-app-sidebar-fixed="true" data-kt-app-sidebar-hoverable="true" data-kt-app-sidebar-push-header="true" data-kt-app-sidebar-push-toolbar="true" data-kt-app-sidebar-push-footer="true" data-kt-app-toolbar-enabled="true" data-kt-app-footer-fixed="true" data-kt-app-footer-fixed-mobile="true"  class="app-default" >
+        {% include 'partials/theme-mode/_init.html' %}
+        {% include 'layout/partials/_page-loader.html' %}
+        <div class="d-flex flex-column flex-root app-root" id="kt_app_root">
+            <!--begin::Page-->
+            <div class="app-page  flex-column" id="kt_app_page">
+                {% include 'layout/partials/_header.html' %}
+                <!--begin::Wrapper-->
+                <div class="app-wrapper  flex-column flex-row-fluid " id="kt_app_wrapper">
+                    {% include 'layout/partials/_sidebar.html' %}
+                    <!--begin::Main-->
+                    <div class="app-main flex-column flex-row-fluid " id="kt_app_main">
+                        <!--begin::Content wrapper-->
+                        <div class="d-flex flex-column flex-column-fluid">
+        {#                    {% include 'layout/partials/_toolbar.html' %}#}
+        {#                    {% include 'layout/partials/_content.html' %}#}
+                            <!--begin::Content-->
+                            <div id="kt_app_content" class="app-content  flex-column-fluid " >
+                                <!--begin::Content container-->
+                                <div id="kt_app_content_container" class="app-container  container-fluid ">
+                                    {% block content %}
+                                    {% endblock %}
+
+                                    <!--begin::Info modal-->
+                                    {% include 'modals/info_modal.html' %}
+                                    <!--end::Info modal-->
+
+                                    <!--begin::small modal-->
+                                    {% include 'modals/small_modal.html' %}
+                                    <!--end::small modal-->
+
+                                    <!--begin::full screen modal-->
+                                    {% include 'modals/full_screen_modal.html' %}
+                                    <!--end::full screen modal-->
+                                </div>
+                            </div>
+                         </div>
+                        <!--end::Content wrapper-->
+                        {% include 'layout/partials/_footer.html' %}
+                     </div>
+                    <!--end:::Main-->
+                </div>
+                <!--end::Wrapper-->
+            </div>
+            <!--end::Page-->
+        </div>
+        <!--end::App-->
+        {% include 'partials/_drawers.html' %}
+        {% include 'partials/_scrolltop.html' %}
+        <!--begin::Modals-->
+{#        {% include 'partials/modals/_upgrade-plan.html' %}#}
+{#        {% include 'partials/modals/create-app/_main.html' %}#}
+{#        {% include 'partials/modals/_new-target.html' %}#}
+{#        {% include 'partials/modals/_view-users.html' %}#}
+        {% include 'partials/modals/users-search/_main.html' %}
+{#        {% include 'partials/modals/_invite-friends.html' %}#}
+        <!--Modal: Logout-->
+        {% include 'modals/logout_modal.html' %}
+        <!--Modal: Logout-->
+        <!--end::Modals-->
+        <!--begin::Javascript-->
+        <script>
+            const hostUrl = "lib/metronic/assets/";
+            const token = {'X-CSRFToken': '{{ csrf_token }}'};
+            const userId = "{{ request.session.user.id }}";
+            const userPhoto = {% if request.session.user.photo %}"{{ user_photo }}"{% else %}"{% static 'lib/metronic/assets/media/icons/duotune/communication/com006.svg' %}";
+            {% endif %}
+        </script>
+        <!--begin::Global Javascript Bundle(mandatory for all pages)-->
+            <script src="{% static 'lib/metronic/assets/plugins/global/plugins.bundle.js' %}"></script>
+            <script src="{% static 'lib/metronic/assets/js/scripts.bundle.js' %}"></script>
+        <!--end::Global Javascript Bundle-->
+        <!--begin::Vendors Javascript(used for this page only)-->
+            <script src="{% static 'lib/metronic/assets/plugins/custom/fullcalendar/fullcalendar.bundle.js' %}"></script>
+            <script src="{% static 'lib/amcharts/lib/5/index.js' %}"></script>
+            <script src="{% static 'lib/amcharts/lib/5/xy.js' %}"></script>
+            <script src="{% static 'lib/amcharts/lib/5/percent.js' %}"></script>
+            <script src="{% static 'lib/amcharts/lib/5/radar.js' %}"></script>
+            <script src="{% static 'lib/amcharts/lib/5/Animated.js' %}"></script>
+            <script src="{% static 'lib/amcharts/lib/5/Dark.js' %}"></script>
+            <script src="{% static 'lib/metronic/assets/plugins/custom/datatables/datatables.bundle.js' %}"></script>
+        <!--end::Vendors Javascript-->
+        <!--begin::Custom Javascript(used for this page only)-->
+            <script src="{% static 'lib/metronic/assets/js/widgets.bundle.js' %}"></script>
+            <script src="{% static 'lib/metronic/assets/js/custom/apps/chat/chat.js' %}"></script>
+            <script src="{% static 'lib/metronic/assets/js/custom/utilities/modals/upgrade-plan.js' %}"></script>
+            <script src="{% static 'lib/metronic/assets/js/custom/utilities/modals/create-app.js' %}"></script>
+            <script src="{% static 'lib/metronic/assets/js/custom/utilities/modals/new-target.js' %}"></script>
+            <script src="{% static 'lib/metronic/assets/js/custom/utilities/modals/users-search.js' %}"></script>
+            <script src="{% static 'lib/kendo/js/kendo.all.min.js' %}"></script>
+            <script src="{% static 'lib/kendo/js/messages/kendo.messages.tr-TR.min.js' %}"></script>
+            <script src="{% static 'lib/kendo/js/cultures/kendo.culture.tr-TR.min.js' %}"></script>
+            <script src="{% static 'js/core.js' %}" type="module"></script>
+            <!--end::Custom Javascript-->
+        <!--end::Javascript-->
+        {% block extrascripts %}
+        {% endblock %}
+    </body>
+    <!--end::Body-->
+</html>

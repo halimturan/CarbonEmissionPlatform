@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 128 128" role="img" aria-label="Web tabanlı erişim ikonu">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#58b278"/>
+      <stop offset="100%" stop-color="#1f7a4c"/>
+    </linearGradient>
+    <style>
+      .stroke{stroke:#0F3D2E;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;}
+      .thin{stroke:#0F3D2E;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+    </style>
+  </defs>
+
+  <!-- Globe to represent 'web' -->
+  <circle cx="56" cy="60" r="34" fill="url(#g)" class="stroke"/>
+  <!-- Latitude/longitude lines -->
+  <path d="M22 60h68" class="thin" opacity="0.7"/>
+  <path d="M56 26c10 8 16 20 16 34s-6 26-16 34" class="thin" opacity="0.7" fill="none"/>
+  <path d="M56 26c-10 8-16 20-16 34s6 26 16 34" class="thin" opacity="0.7" fill="none"/>
+  <path d="M33 43c7 4 15 6 23 6s16-2 23-6" class="thin" opacity="0.7" fill="none"/>
+  <path d="M33 77c7-4 15-6 23-6s16 2 23 6" class="thin" opacity="0.7" fill="none"/>
+
+  <!-- Cursor/arrow to represent 'erişim' (access) -->
+  <g transform="translate(68,68)">
+    <path d="M0 0l14 34 4-12 12 8-14-34z" fill="#0F3D2E" stroke="#0F3D2E" stroke-width="2"/>
+    <!-- Click ripple -->
+    <circle cx="-2" cy="-2" r="8" fill="none" class="thin"/>
+    <circle cx="-2" cy="-2" r="12" fill="none" class="thin" opacity="0.6"/>
+  </g>
+
+  <!-- Cloud to suggest 'web tabanlı' services -->
+  <g transform="translate(74,20)">
+    <path d="M18 26h16a10 10 0 0 0 0-20 12 12 0 0 0-22-4 10 10 0 0 0-12 10 8 8 0 0 0 8 14z"
+          fill="#d7f0e1" class="stroke"/>
+    <!-- tiny signal dots to hint 'erişim' -->
+    <circle cx="40" cy="10" r="2" fill="#0F3D2E"/>
+    <circle cx="44" cy="6" r="2" fill="#0F3D2E" opacity="0.7"/>
+    <circle cx="48" cy="4" r="2" fill="#0F3D2E" opacity="0.5"/>
+  </g>
+</svg>

@@ -1,0 +1,116 @@
+{% extends 'web/layout.html' %}
+{% load i18n %}
+
+{% block title %}{% trans 'Ücretlendirme' %}{% endblock %}
+
+{% block content %}
+    <div class="container my-10">
+        <!--begin::breadcrumb-->
+        <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
+            {% trans 'Ücretlendirme' %}
+        </h1>
+        <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1 mb-10">
+            <!--begin::Item-->
+            <li class="breadcrumb-item text-muted">
+                <a href="/static" class="text-muted text-hover-primary">
+                    {% trans 'Anasayfa' %}
+                </a>
+            </li>
+            <!--end::Item-->
+            <!--begin::Item-->
+            <li class="breadcrumb-item">
+                <span class="bullet bg-gray-400 w-5px h-2px"></span>
+            </li>
+            <!--end::Item-->
+
+            <!--begin::Item-->
+            <li class="breadcrumb-item text-muted">
+                {% trans 'Ücretlendirme' %}
+            </li>
+            <!--end::Item-->
+        </ul>
+        <!--end::breadcrumb-->
+        <div class="d-flex flex-column">
+            <!--begin::Heading-->
+            <div class="mb-13 text-center">
+                <h1 class="fs-2hx fw-bold mb-5">{% trans 'Planınızı seçin' %}</h1>
+            </div>
+            <!--end::Heading-->
+
+            <!--begin::Row-->
+            <div class="row g-10">
+                {% for plan in plans %}
+                    <div class="col-xs-12 col-sm-6 col-xl-4">
+                        <div class="d-flex">
+                            <!--begin::Option-->
+                            <div class="w-100 d-flex flex-column flex-center rounded-3 bg-light bg-opacity-75 py-15 px-10">
+                                <!--begin::Heading-->
+                                <div class="mb-7 text-center">
+                                    <!--begin::Title-->
+                                    <h1 class="text-gray-900 mb-5 fw-bolder">{{ plan.name }}</h1>
+                                    <!--end::Title-->
+
+                                    <!--begin::Description-->
+                                    <div class="text-gray-600 fw-semibold mb-5">
+                                        {{ plan.description }}
+                                    </div>
+                                    <!--end::Description-->
+
+                                    <!--begin::Price-->
+                                    <div class="text-center">
+                                        {% if plan.price == 0 %}
+                                            <span class="fs-3x fw-bold text-primary">{% trans 'Ücretsiz' %}</span>
+                                        {% else %}
+                                            <span class="mb-2 text-primary">$</span>
+
+                                            <span class="fs-3x fw-bold text-primary" data-kt-plan-price-month="39" data-kt-plan-price-annual="399">
+                                                {{ plan.price }}
+                                            </span>
+
+                                            <span class="fs-7 fw-semibold opacity-50">/
+                                                <span data-kt-element="period">{% trans 'Ay' %}</span>
+                                            </span>
+                                        {% endif %}
+                                    </div>
+                                    <!--end::Price-->
+                                </div>
+                                <!--end::Heading-->
+
+                                <!--begin::Features-->
+                                <div class="w-100 mb-10">
+                                    {% for item in plan.plan_features.all %}
+                                        <!--begin::Item-->
+                                        <div class="d-flex align-items-center mb-5">
+                                            <span class="fw-semibold fs-6 text-gray-800 flex-grow-1 pe-3">
+                                                {% if item.limit %}
+                                                    {% if item.limit > 100 %}
+                                                        {% trans 'Limitsiz' %}
+                                                    {% else %}
+                                                        {{ item.limit }}
+                                                    {% endif %} {{ item.feature }}
+                                                {% else %}
+                                                    {{ item.feature }}
+                                                {% endif %}
+                                            </span>
+                                            <i class="ki-duotone ki-check-circle fs-1 text-success">
+                                                <span class="path1"></span>
+                                                <span class="path2"></span>
+                                            </i>
+                                        </div>
+                                        <!--end::Item-->
+                                    {% endfor %}
+                                </div>
+                                <!--end::Features-->
+                                <!--begin::select button-->
+                                <a href="{% url 'pricing:payment' plan.slug %}" class="btn btn-sm btn-primary">{% trans 'Seç' %}</a>
+                                <!--end::select button-->
+                            </div>
+                            <!--end::Option-->
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <!--end::Row-->
+        </div>
+    </div>
+{% endblock %}

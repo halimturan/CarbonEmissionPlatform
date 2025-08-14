@@ -1,0 +1,295 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-13 16:01+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: CarbonEmissionPlatform/settings.py:124
+msgid "Turkish"
+msgstr ""
+
+#: CarbonEmissionPlatform/settings.py:125
+msgid "English"
+msgstr ""
+
+#: CarbonEmissionPlatform/urls.py:14
+msgid "ucretlendirme/"
+msgstr "pricing/"
+
+#: apps/portal/urls.py:9
+msgid "uye_ol"
+msgstr "register"
+
+#: apps/pricing/urls.py:8
+msgid "planlar"
+msgstr "plans"
+
+#: apps/web/urls.py:9
+msgid "iletisim"
+msgstr "contact"
+
+#: templates/account/login.html:97 templates/account/login.html:142
+#: templates/portal/signup.html:254 templates/web/header.html:72
+msgid "Giriş Yap"
+msgstr "Login"
+
+#: templates/account/login.html:119
+msgid "Parola"
+msgstr "Password"
+
+#: templates/account/login.html:130
+msgid "Parolamı unuttum"
+msgstr "I forgot my password"
+
+#: templates/account/login.html:157
+msgid "Hala üye değil misin?"
+msgstr "Still not a member?"
+
+#: templates/account/login.html:160 templates/web/header.html:63
+#: templates/web/partials/content_block.html:11
+msgid "Üye Ol"
+msgstr "Register"
+
+#: templates/account/verification_sent.html:14
+msgid "E-Mail Adresinizi Doğrulayın"
+msgstr "Verify Your Email Address"
+
+#: templates/account/verification_sent.html:15
+msgid ""
+"Doğrulama için size bir e-posta gönderdik. Kayıt işlemini tamamlamak için "
+"verilen bağlantıyı takip edin. Doğrulama e-postasını ana gelen kutunuzda "
+"görmüyorsanız spam klasörünüzü kontrol edin. Doğrulama e-postasını birkaç "
+"dakika içinde almazsanız lütfen bizimle iletişime geçin."
+msgstr ""
+"We've sent you a verification email. Follow the link provided to complete "
+"the registration process. If you don't see the verification email in your "
+"main inbox, check your spam folder. If you don't receive it within a few "
+"minutes, please contact us."
+
+#: templates/layout/partials/sidebar/_menu.html:34
+#: templates/web/contact.html:19 templates/web/index.html:5
+#: templates/web/pricing/plans.html:16
+msgid "Anasayfa"
+msgstr "Home"
+
+#: templates/layout/partials/sidebar/_menu.html:60
+msgid "Şirket İşlemleri"
+msgstr "Company Process"
+
+#: templates/layout/partials/sidebar/_menu.html:78
+msgid "Şirketler Bilgileri"
+msgstr "Company Infos"
+
+#: templates/layout/partials/sidebar/_menu.html:93
+msgid "Tesisler"
+msgstr "Facilities"
+
+#: templates/layout/partials/sidebar/_menu.html:112
+#: templates/portal/user/user_list.html:4
+msgid "Kullanıcı İşlemleri"
+msgstr "User Process"
+
+#: templates/layout/partials/sidebar/_menu.html:129
+msgid "Kullanıcılar"
+msgstr "Users"
+
+#: templates/layout/partials/sidebar/_menu.html:145
+msgid "Yetkiler"
+msgstr "Authorities"
+
+#: templates/portal/signup.html:102 templates/portal/signup.html:236
+msgid "Hesap Oluştur"
+msgstr "Create an Account"
+
+#: templates/portal/signup.html:127 templates/portal/user/user_list.html:11
+msgid "Ad"
+msgstr "Name"
+
+#: templates/portal/signup.html:134 templates/portal/user/user_list.html:12
+msgid "Soyad"
+msgstr "Surname"
+
+#: templates/portal/signup.html:156
+msgid "Şirket İsmi"
+msgstr "Company Name"
+
+#: templates/portal/signup.html:163 templates/portal/user/user_list.html:15
+msgid "Telefon"
+msgstr "Phone"
+
+#: templates/portal/signup.html:204
+msgid ""
+"Harf, rakam ve sembollerin karışımından oluşan 8 veya daha fazla karakter "
+"kullanın."
+msgstr "Use 8 or more characters with a mix of letters, numbers & symbols."
+
+#: templates/portal/signup.html:224
+msgid "Şartları kabul ediyorum"
+msgstr "I Accept the Terms"
+
+#: templates/portal/signup.html:242
+msgid "Lütfen bekleyin"
+msgstr "Please wait"
+
+#: templates/portal/signup.html:251
+msgid "Zaten bir hesabınız var mı?"
+msgstr "Already have an Account?"
+
+#: templates/portal/user/user_list.html:13
+msgid "TC"
+msgstr "Identity"
+
+#: templates/portal/user/user_list.html:14
+msgid "Mail"
+msgstr "Mail"
+
+#: templates/web/contact.html:13 templates/web/contact.html:31
+msgid "İletişim"
+msgstr "Contact"
+
+#: templates/web/contact.html:47
+msgid "Görüşlerinizi Bize İletin"
+msgstr "Send Us Your Feedback"
+
+#: templates/web/contact.html:53
+msgid "İsim"
+msgstr "Name"
+
+#: templates/web/contact.html:61
+msgid "Email"
+msgstr "Email"
+
+#: templates/web/contact.html:71
+msgid "Konu"
+msgstr "Subject"
+
+#: templates/web/contact.html:78
+msgid "Mesaj"
+msgstr "Message"
+
+#: templates/web/contact.html:86
+msgid "Gönder"
+msgstr "Send"
+
+#: templates/web/contact.html:118
+msgid "İrtibat"
+msgstr "Phone"
+
+#: templates/web/contact.html:149
+msgid "Adres"
+msgstr "Address"
+
+#: templates/web/footer.html:51
+msgid "Sunduklarımız"
+msgstr "What we offer"
+
+#: templates/web/footer.html:65
+msgid "Sosyal Medya"
+msgstr "Social Media"
+
+#: templates/web/footer.html:117
+msgid "Her hakkı saklıdır."
+msgstr "All rights reserved."
+
+#: templates/web/header.html:15
+msgid "Diller"
+msgstr "Languages"
+
+#: templates/web/header.html:54
+msgid "Platform Paneli"
+msgstr "Platform Panel"
+
+#: templates/web/partials/faq.html:10
+msgid "Sıkça Sorulan Sorular"
+msgstr "Frequently Asked Questions"
+
+#: templates/web/partials/features.html:10
+msgid "Özellikler"
+msgstr "Features"
+
+#: templates/web/partials/features.html:14
+msgid ""
+" Karbon Platform, firmaların kurumsal karbon ayak izlerinin ISO 14064-1:2018 "
+"Standardı ve GHG Protokol kapsamında hesaplama ve raporlamasını yapan; aynı "
+"zamanda emisyonlarının azaltımına yönelik stratejiler oluşturmasına imkan "
+"sağlayan, kullanıcı dostu bir yazılımdır. "
+msgstr ""
+"Karbon Platform is a user-friendly software that allows companies to "
+"calculate and report their corporate carbon footprints within the scope of "
+"the ISO 14064-1:2018 Standard and the GHG Protocol, while also enabling them "
+"to create strategies to reduce their emissions."
+
+#: templates/web/partials/pricing_block.html:9
+#: templates/web/pricing/plans.html:36
+msgid "Planınızı seçin"
+msgstr "Choose Your Plan"
+
+#: templates/web/partials/pricing_block.html:13
+msgid ""
+"Eğer daha fazla bilgiye ihtiyacınız varsa <a href=\"%(pricing_url)s\">Ücretlendirme Sayfası'nı</a> ziyaret edin."
+msgstr ""
+"If you need more information, visit the <a href=\"%(pricing_url)s\">Pricing Page</a>."
+
+#: templates/web/partials/pricing_block.html:40
+#: templates/web/pricing/plans.html:62
+msgid "Ücretsiz"
+msgstr "Free"
+
+#: templates/web/partials/pricing_block.html:49
+#: templates/web/pricing/plans.html:71
+msgid "Ay"
+msgstr "Month"
+
+#: templates/web/partials/pricing_block.html:65
+#: templates/web/pricing/plans.html:87
+msgid "Limitsiz"
+msgstr "Unlimited"
+
+#: templates/web/partials/pricing_block.html:83
+#: templates/web/pricing/plans.html:105
+msgid "Seç"
+msgstr "Choose"
+
+#: templates/web/partials/why_use.html:10
+msgid "Neden Kullanmalıyız?"
+msgstr "Why Should We Use It?"
+
+#: templates/web/pricing/payment.html:4
+msgid "Ödeme Sayfası"
+msgstr "Payment Page"
+
+#: templates/web/pricing/payment.html:184
+msgid "Ön bilgilendirme formunu ve mesafeli satış sözleşmesini onaylıyorum."
+msgstr "I approve the preliminary information form and the distance sales contract."
+
+#: templates/web/pricing/payment.html:190
+msgid "Ödeme Yap"
+msgstr "Make Payment"
+
+#: templates/web/pricing/plans.html:4 templates/web/pricing/plans.html:10
+#: templates/web/pricing/plans.html:28
+msgid "Ücretlendirme"
+msgstr "Pricing"
+
+#~ msgid "Vergi Numarası"
+#~ msgstr "Tax Number"
+
+#~ msgid "Parola tekrar"
+#~ msgstr "Password"
+
+#~ msgid "Üyel Ol"
+#~ msgstr "Register"

@@ -1,0 +1,9 @@
+{% extends "admin/base_site.html" %}
+{% block extrahead %}
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const tab_el = document.getElementsByClassName('parler-language-tabs')[0];
+            tab_el.classList.add('col-12');
+        });
+    </script>
+{% endblock %}

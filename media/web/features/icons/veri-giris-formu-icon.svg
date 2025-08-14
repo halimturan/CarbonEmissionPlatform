@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 128 128" role="img" aria-label="Veri giriş formu ikonu">
+  <style>
+    .stroke{stroke:#1f7a4c;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;fill:none;}
+    .fill{fill:#1f7a4c;}
+  </style>
+
+  <!-- Form outline -->
+  <rect x="20" y="16" width="88" height="96" rx="6" class="stroke"/>
+
+  <!-- Form lines -->
+  <line x1="32" y1="36" x2="96" y2="36" class="stroke"/>
+  <line x1="32" y1="52" x2="96" y2="52" class="stroke"/>
+  <line x1="32" y1="68" x2="96" y2="68" class="stroke"/>
+  <line x1="32" y1="84" x2="96" y2="84" class="stroke"/>
+
+  <!-- Input field boxes (left side) -->
+  <rect x="32" y="30" width="8" height="8" class="fill"/>
+  <rect x="32" y="46" width="8" height="8" class="fill"/>
+  <rect x="32" y="62" width="8" height="8" class="fill"/>
+  <rect x="32" y="78" width="8" height="8" class="fill"/>
+</svg>

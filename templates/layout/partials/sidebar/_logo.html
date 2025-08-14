@@ -1,0 +1,38 @@
+{% load static %}
+<!--begin::Logo-->
+<div class="app-sidebar-logo px-6 justify-content-lg-center h-100px border-bottom border-active-dark" id="kt_app_sidebar_logo">
+    <!--begin::Logo image-->
+    <a href="/portal" class="text-center justify-content-lg-center">
+        <img alt="Logo" src="{{ site_settings.logo.url }}" class="h-40px app-sidebar-logo-default"/>
+        <img alt="Logo" src="{{ site_settings.shortcut.url }}" class="h-40px app-sidebar-logo-minimize"/>
+    </a>
+    <!--end::Logo image-->
+            <!--begin::Sidebar toggle-->
+        <!--begin::Minimized sidebar setup:
+            if (isset($_COOKIE["sidebar_minimize_state"]) && $_COOKIE["sidebar_minimize_state"] === "on") {
+                1. "src/js/layout/sidebar.js" adds "sidebar_minimize_state" cookie value to save the sidebar minimize state.
+                2. Set data-kt-app-sidebar-minimize="on" attribute for body tag.
+                3. Set data-kt-toggle-state="active" attribute to the toggle element with "kt_app_sidebar_toggle" id.
+                4. Add "active" class to to sidebar toggle element with "kt_app_sidebar_toggle" id.
+            }
+        -->
+        <div
+            id="kt_app_sidebar_toggle"
+            class="app-sidebar-toggle btn btn-icon btn-shadow btn-sm btn-color-muted btn-active-color-primary h-30px w-30px position-absolute top-50 start-100 translate-middle rotate "
+            data-kt-toggle="true"
+            data-kt-toggle-state="active"
+            data-kt-toggle-target="body"
+            data-kt-toggle-name="app-sidebar-minimize">
+            <!--begin::Svg Icon | path: /var/www/preview.keenthemes.com/keenthemes/metronic/docs/core/html/src/media/icons/duotune/arrows/arr060.svg-->
+            <span class="svg-icon svg-icon-muted svg-icon-1hx rotate-180">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9.60001 11H21C21.6 11 22 11.4 22 12C22 12.6 21.6 13 21 13H9.60001V11Z" fill="currentColor"></path>
+                    <path d="M6.2238 13.2561C5.54282 12.5572 5.54281 11.4429 6.22379 10.7439L10.377 6.48107C10.8779 5.96697 11.75 6.32158 11.75 7.03934V16.9607C11.75 17.6785 10.8779 18.0331 10.377 17.519L6.2238 13.2561Z" fill="currentColor"></path>
+                    <rect opacity="0.3" x="2" y="4" width="2" height="16" rx="1" fill="currentColor"></rect>
+                </svg>
+            </span>
+            <!--end::Svg Icon-->
+        </div>
+        <!--end::Sidebar toggle-->
+    </div>
+<!--end::Logo-->

@@ -1,0 +1,7 @@
+<div class="float-right">
+    <button id="graphBtn" type="button" class="btn"><i class="fa fa-chart-pie"></i><span class="d-sm-none d-md-none d-lg-none d-xxl-inline-block">GRAFİK</span></button>
+    {% if request.session.user.is_see_citizen_list %}
+        <button id="listBtn" type="button" class="btn"><i class="fa fa-table"></i><span class="d-sm-none d-md-none d-lg-none d-xxl-inline-block">LİSTE</span></button>
+    {% endif %}
+{#    <button id="processBtn" type="button" class="btn btn-default z-depth-0 rounded mb-0"><i class="fa fa-comment-dots"></i> İŞLEMLER</button>#}
+</div>
